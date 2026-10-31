@@ -1,0 +1,46 @@
+--- a/src/app/(auth)/login/page.tsx
++++ b/src/app/(auth)/login/page.tsx
+@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
+ import { createClient } from "@/lib/supabase/client";
+ import { toast } from "sonner";
++import { ForgotPasswordModal } from "@/components/modals/forgot-password-modal";
+ 
+ export default function LoginPage() {
+   const router = useRouter();
+@@ -116,9 +117,17 @@ export default function LoginPage() {
+               <div className="space-y-2">
+                 <div className="flex items-center justify-between">
+                   <Label htmlFor="password">Parol</Label>
+-                  <Link href="#" className="text-xs text-primary hover:underline">
+-                    Parolni unutdingizmi?
+-                  </Link>
++                  <ForgotPasswordModal
++                    initialEmail={email}
++                    trigger={
++                      <button
++                        type="button"
++                        className="text-xs text-primary hover:underline font-medium transition-colors"
++                      >
++                        Parolni unutdingizmi?
++                      </button>
++                    }
++                  />
+                 </div>
+                 <div className="relative">
+                   <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+@@ -169,6 +178,14 @@ export default function LoginPage() {
+                 </Link>
+               </div>
++
++              <div className="text-center text-[11px] text-muted-foreground flex items-center justify-center gap-3 pt-1">
++                <Link href="/terms" className="hover:text-foreground transition-colors hover:underline">
++                  Foydalanish shartlari
++                </Link>
++                <span>•</span>
++                <Link href="/privacy" className="hover:text-foreground transition-colors hover:underline">
++                  Maxfiylik siyosati
++                </Link>
++              </div>
+             </CardFooter>
+           </form>
+         </Card>

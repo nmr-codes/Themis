@@ -1,0 +1,30 @@
+--- a/src/lib/mock-data.ts
++++ b/src/lib/mock-data.ts
+@@ -23,6 +23,7 @@ export const MOCK_SPECIALISTS: (Specialist & { categories: LegalCategory[]; serv
+     previous_workplaces: [
+       { company: "Lex Consult MCHJ", position: "Bosh huquqshunos", start_year: 2016, end_year: 2020 },
+       { company: "Adolat Advokatlik Byurosi", position: "Advokat", start_year: 2020, end_year: null },
+     ],
+     verification_status: "approved",
++    license_number: "#ADV-1082",
+     admin_notes: "Diplom va advokatlik litsenziyasi tasdiqlangan",
+     is_online: true,
+     rating_avg: 4.9,
+@@ -103,6 +104,7 @@ export const MOCK_SPECIALISTS: (Specialist & { categories: LegalCategory[]; serv
+     previous_workplaces: [
+       { company: "Family Legal Aid", position: "Yurist-konsultant", start_year: 2018, end_year: null },
+     ],
+     verification_status: "approved",
++    license_number: "#ADV-3490",
+     admin_notes: "Diplom va sertifikatlar tasdiqlangan",
+     is_online: true,
+     rating_avg: 4.8,
+@@ -159,6 +161,7 @@ export const MOCK_SPECIALISTS: (Specialist & { categories: LegalCategory[]; serv
+     previous_workplaces: [
+       { company: "Capital Law Firm", position: "Hamkor advokat", start_year: 2014, end_year: null },
+     ],
+     verification_status: "approved",
++    license_number: "#ADV-4921",
+     admin_notes: "Litsenziya #ADV-4921 tasdiqlangan",
+     is_online: false,
+     rating_avg: 4.95,

@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fonts fallback & exposure */
+    --font-serif: var(--font-serif, 'Playfair Display', Georgia, serif);
+    --font-sans: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif);
+    --font-display: var(--font-cinzel, 'Cinzel', serif);
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Backward compatibility aliases */
+    --font-cormorant: var(--font-serif);
+    --font-jakarta: var(--font-sans);
+
+    /* ======================================================================
+       Warm Uzbek Heritage Palette (Light Mode - Archival Parchment)
+       ====================================================================== */
+    /* Background: Warm Parchment #FAF8F5 */
+    --background: 36 33% 97%;
+    /* Foreground: Obsidian Document Ink #0B132B */
+    --foreground: 225 59% 11%;
+
+    /* Card & Popover: Warm Archival Linen #FDFBF7 */
+    --card: 40 50% 98%;
+    --card-foreground: 225 59% 11%;
+    --popover: 40 50% 98%;
+    --popover-foreground: 225 59% 11%;
+
+    /* Primary: Samarkand Azure #0D47A1 */
+    --primary: 216 85% 34%;
+    --primary-foreground: 36 33% 98%;
+
+    /* Secondary: Burnished Parchment / Soft Vellum #F0EBE1 */
+    --secondary: 38 30% 92%;
+    --secondary-foreground: 225 59% 13%;
+
+    /* Muted: Subtle Parchment Wash #ECE6DC */
+    --muted: 38 22% 91%;
+    --muted-foreground: 220 16% 40%;
+
+    /* Accent: Bukhara Terracotta #B84A2A */
+    --accent: 14 63% 44%;
+    --accent-foreground: 36 33% 98%;
+
+    /* Destructive: Rubrication Red #B91C1C */
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 36 33% 98%;
+
+    /* Border & Input: Parchment Deckle Border #E2DCD0 */
+    --border: 40 24% 85%;
+    --input: 40 24% 85%;
+
+    /* Ring: Samarkand Azure Focus Ring */
+    --ring: 216 85% 34%;
+
+    /* Geometry */
+    --radius: 0.65rem;
+
+    /* Bespoke Editorial Palette HSL Tokens */
+    --seal-verified: 143 64% 24%; /* #166534 Noble Emerald Adliya Seal */
+    --gold-crest: 44 67% 46%;      /* #C59B27 Antique Gold / Judicial Crest */
+    --bukhara: 14 63% 44%;         /* #B84A2A Bukhara Terracotta */
+    --samarkand: 216 85% 34%;      /* #0D47A1 Samarkand Azure */
+  }
+
+  .dark {
+    /* ======================================================================
+       Warm Uzbek Heritage Palette (Dark Mode - Nocturnal Court Chamber)
+       ====================================================================== */
+    --background: 225 55% 8%;      /* #070D1E Obsidian Midnight Chamber */
+    --foreground: 38 30% 93%;      /* #F4EFE6 Warm Vellum */
+
+    --card: 225 45% 12%;           /* #0F172A Deep Archival Slate */
+    --card-foreground: 38 30% 93%;
+    --popover: 225 45% 12%;
+    --popover-foreground: 38 30% 93%;
+
+    /* Luminous Azure on dark */
+    --primary: 216 85% 58%;
+    --primary-foreground: 225 55% 8%;
+
+    --secondary: 225 35% 16%;
+    --secondary-foreground: 38 30% 93%;
+
+    --muted: 225 35% 16%;
+    --muted-foreground: 220 15% 65%;
+
+    /* Terracotta accent on dark */
+    --accent: 14 55% 50%;
+    --accent-foreground: 38 30% 93%;
+
+    --destructive: 0 63% 35%;
+    --destructive-foreground: 38 30% 93%;
+
+    --border: 225 30% 20%;
+    --input: 225 30% 20%;
+    --ring: 216 85% 60%;
+
+    --seal-verified: 142 60% 40%;
+    --gold-crest: 44 75% 55%;
+    --bukhara: 14 60% 52%;
+    --samarkand: 216 85% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* ==========================================================================
+   Shared Editorial & Judicial Utility Classes
+   ========================================================================== */
+
+/* 1. Typography utilities */
+.font-editorial-heading {
+  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.font-judicial-sub {
+  font-family: var(--font-display), var(--font-cinzel), var(--font-serif), serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* 2. Color gradient utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #A87C1D 0%, #C59B27 50%, #845D18 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C59B27 0%, #E7D7AC 50%, #A87C1D 100%);
+}
+
+.bg-samarkand-gradient,
+.bg-lapis-gradient {
+  background: linear-gradient(145deg, #0B132B 0%, #0D47A1 60%, #15468D 100%);
+}
+
+.text-samarkand-gradient {
+  background: linear-gradient(135deg, #0D47A1 0%, #1D69CD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3. Legal Paper & Parchment Cards */
+.parchment-card,
+.paper-card {
+  background-color: hsl(var(--card));
+  border: 1px solid rgba(226, 220, 208, 0.9);
+  box-shadow: 0 2px 10px -2px rgba(11, 19, 43, 0.04), 0 8px 24px -4px rgba(11, 19, 43, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parchment-card:hover,
+.paper-card:hover {
+  border-color: rgba(197, 155, 39, 0.45);
+  box-shadow: 0 4px 16px -2px rgba(11, 19, 43, 0.08), 0 16px 36px -6px rgba(11, 19, 43, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 4. Official Verification Seal (Adliya Vazirligi Verified Advocate) */
+.legal-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #166534;
+  background-color: rgba(22, 101, 52, 0.08);
+  border: 1px solid rgba(22, 101, 52, 0.28);
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(22, 101, 52, 0.05);
+  transition: all 0.2s ease;
+}
+
+.legal-seal:hover {
+  background-color: rgba(22, 101, 52, 0.14);
+  border-color: rgba(22, 101, 52, 0.45);
+}
+
+/* Legacy alias */
+.seal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #166534;
+  background-color: rgba(22, 101, 52, 0.08);
+  border: 1px solid rgba(22, 101, 52, 0.25);
+  border-radius: 9999px;
+}
+
+/* 5. Judicial Crest & Star Rating Badge */
+.judicial-crest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #845D18;
+  background-color: rgba(197, 155, 39, 0.12);
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  border-radius: 9999px;
+}
+
+/* 6. Legal Statute Border (Lex.uz & National Code Quotations) */
+.statute-border {
+  position: relative;
+  border-left: 3px solid #B84A2A; /* Bukhara terracotta */
+  background: linear-gradient(90deg, rgba(184, 74, 42, 0.05) 0%, rgba(250, 248, 245, 0) 100%);
+  padding: 0.875rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-top: 1px solid rgba(226, 220, 208, 0.5);
+  border-right: 1px solid rgba(226, 220, 208, 0.5);
+  border-bottom: 1px solid rgba(226, 220, 208, 0.5);
+}
+
+.statute-border-azure {
+  border-left-color: #0D47A1; /* Samarkand azure */
+  background: linear-gradient(90deg, rgba(13, 71, 161, 0.05) 0%, rgba(250, 248, 245, 0) 100%);
+}
+
+.statute-border-gold {
+  border-left-color: #C59B27; /* Antique gold */
+  background: linear-gradient(90deg, rgba(197, 155, 39, 0.06) 0%, rgba(250, 248, 245, 0) 100%);
+}
+
+/* 7. Legal Memorandum Layout Container */
+.legal-memorandum {
+  background-color: #FAF8F5;
+  border: 1px solid #E2DCD0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(11, 19, 43, 0.05), 0 10px 30px rgba(11, 19, 43, 0.04);
+  position: relative;
+}
+
+.legal-memorandum::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0D47A1 0%, #C59B27 50%, #B84A2A 100%);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* 8. Interactive Lex.uz Citation Pill */
+.lex-citation {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #0D47A1;
+  background-color: rgba(13, 71, 161, 0.07);
+  border: 1px solid rgba(13, 71, 161, 0.22);
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.lex-citation:hover {
+  background-color: rgba(13, 71, 161, 0.14);
+  border-color: rgba(13, 71, 161, 0.4);
+  text-decoration: underline;
+}
+
+/* 9. Notary Stamp Box */
+.notary-stamp {
+  position: relative;
+  border: 2px dashed rgba(197, 155, 39, 0.35);
+  border-radius: 0.5rem;
+}
+
+.notary-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(197, 155, 39, 0.2);
+  pointer-events: none;
+}
+
+/* 10. Archival Deckle Border */
+.deckle-border {
+  border-color: #E2DCD0;
+}

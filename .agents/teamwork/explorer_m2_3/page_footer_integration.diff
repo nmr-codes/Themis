@@ -1,0 +1,116 @@
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -124,7 +124,7 @@ export default function Home() {
+             <Link href="#tahlil" className="hover:text-[#0D1B34] transition-colors">
+               AI Tahlilxonasi
+             </Link>
+-            <Link href="/dashboard/specialists" className="hover:text-[#0D1B34] transition-colors">
++            <Link href="/specialists" className="hover:text-[#0D1B34] transition-colors">
+               Advokatlar Reyestri
+             </Link>
+             <Link href="#manfaat" className="hover:text-[#0D1B34] transition-colors">
+@@ -183,14 +183,14 @@ export default function Home() {
+             </p>
+ 
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+-              <Link href="/dashboard/ai-chat" className="w-full sm:w-auto">
++              <Link href="/ai-chat" className="w-full sm:w-auto">
+                 <Button className="w-full sm:w-auto bg-[#0D1B34] hover:bg-[#152A4F] text-[#FAF7EE] text-base px-8 h-12 shadow-folio border border-[#C5A059]/50 gap-2">
+                   <Sparkles className="h-4 w-4 text-[#D4AF37]" />
+                   Muammoni bepul tahlil qilish
+                   <ArrowRight className="h-4 w-4" />
+                 </Button>
+               </Link>
+-              <Link href="/dashboard/specialists" className="w-full sm:w-auto">
++              <Link href="/specialists" className="w-full sm:w-auto">
+                 <Button
+                   variant="outline"
+                   className="w-full sm:w-auto border-[#C5A059]/40 hover:bg-[#F2ECE1] text-[#0D1B34] text-base px-6 h-12"
+@@ -616,39 +616,77 @@ export default function Home() {
+       <footer className="bg-[#081021] text-slate-400 py-12 border-t border-amber-900/20 text-xs">
+         <div className="container mx-auto px-4">
+-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+-            <div className="flex items-center gap-3">
+-              <div className="w-8 h-8 rounded bg-[#C5A059]/20 flex items-center justify-center border border-[#C5A059]/40">
+-                <Scale className="h-4 w-4 text-[#D4AF37]" />
++          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-slate-800">
++            <div className="lg:col-span-2 space-y-3">
++              <div className="flex items-center gap-3">
++                <div className="w-8 h-8 rounded bg-[#C5A059]/20 flex items-center justify-center border border-[#C5A059]/40">
++                  <Scale className="h-4 w-4 text-[#D4AF37]" />
++                </div>
++                <div>
++                  <span className="font-editorial-heading text-base font-bold text-white block">
++                    Huquqiy Yordam (Themis)
++                  </span>
++                  <p className="text-[10px] font-mono text-slate-500">
++                    O&apos;zbekiston Respublikasi Huquqiy Portali
++                  </p>
++                </div>
+               </div>
+-              <div>
+-                <span className="font-editorial-heading text-base font-bold text-white">
+-                  Huquqiy Yordam (Themis)
+-                </span>
+-                <p className="text-[10px] font-mono text-slate-500">
+-                  O&apos;zbekiston Respublikasi Huquqiy Portali
+-                </p>
+-              </div>
++              <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
++                O&apos;RQ-547-son Qonun va &quot;Advokatura to&apos;g&apos;risida&quot;gi Qonun asosida fuqarolarga malakali yuridik yordam hamda AI dastlabki qonunchilik tahlili.
++              </p>
+             </div>
+ 
+-            <div className="flex flex-wrap gap-6 text-slate-400">
+-              <Link href="/dashboard/specialists" className="hover:text-white transition-colors">
+-                Advokatlar katalogi
+-              </Link>
+-              <Link href="/dashboard/ai-chat" className="hover:text-white transition-colors">
+-                AI Maslahatchi
+-              </Link>
+-              <Link href="/specialist" className="hover:text-white transition-colors">
+-                Yuristlar kabineti
+-              </Link>
+-              <Link href="/admin" className="hover:text-white transition-colors">
+-                Moderator markazi
+-              </Link>
++            <div className="space-y-2">
++              <p className="text-white font-mono uppercase tracking-wider font-semibold text-[11px]">Xizmatlar</p>
++              <ul className="space-y-1.5">
++                <li><Link href="/specialists" className="hover:text-white transition-colors">Advokatlar reyestri</Link></li>
++                <li><Link href="/ai-chat" className="hover:text-white transition-colors">AI Maslahatchi</Link></li>
++                <li><Link href="#kodekslar" className="hover:text-white transition-colors">Qonun Kodekslari</Link></li>
++                <li><Link href="#manfaat" className="hover:text-white transition-colors">Kafolat mexanizmi</Link></li>
++              </ul>
++            </div>
++
++            <div className="space-y-2">
++              <p className="text-white font-mono uppercase tracking-wider font-semibold text-[11px]">Huquqiy & Siyosat</p>
++              <ul className="space-y-1.5">
++                <li><Link href="/about" className="hover:text-white transition-colors">Biz haqimizda</Link></li>
++                <li><Link href="/privacy" className="hover:text-white transition-colors">Maxfiylik siyosati</Link></li>
++                <li><Link href="/terms" className="hover:text-white transition-colors">Foydalanish shartlari</Link></li>
++                <li><Link href="/specialist" className="hover:text-white transition-colors">Yuristlar kabineti</Link></li>
++              </ul>
++            </div>
++
++            <div className="space-y-2">
++              <p className="text-white font-mono uppercase tracking-wider font-semibold text-[11px]">Qo&apos;llab-quvvatlash</p>
++              <ul className="space-y-1.5 text-[11px]">
++                <li><a href="tel:+998712000108" className="hover:text-white transition-colors">+998 (71) 200-01-08</a></li>
++                <li><a href="https://t.me/themis_support_uz" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">@themis_support_uz</a></li>
++                <li><a href="mailto:yordam@themis.uz" className="hover:text-white transition-colors">yordam@themis.uz</a></li>
++                <li className="text-slate-500">Toshkent, Sayilgoh k., 35</li>
++              </ul>
+             </div>
+           </div>
+ 
+           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 font-mono">
+             <p>© 2026 Huquqiy Yordam. Barcha huquqlar qonun bilan himoyalangan.</p>
+-            <p className="text-slate-400">
++            <p className="text-slate-400 text-center sm:text-right">
+               Advokatura to&apos;g&apos;risidagi Qonun normalari va advokatlik siri qat&apos;iy ta&apos;minlanadi.
+             </p>
+           </div>
+         </div>
+       </footer>

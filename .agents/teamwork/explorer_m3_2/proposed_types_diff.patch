@@ -1,0 +1,10 @@
+--- a/src/lib/types.ts
++++ b/src/lib/types.ts
+@@ -78,6 +78,8 @@ export interface Specialist {
+   previous_workplaces: WorkplaceEntry[];
+   verification_status: VerificationStatus;
++  license_number?: string;
++  chamber_name?: string;
+   admin_notes: string | null;
+   is_online: boolean;
+   rating_avg: number;
